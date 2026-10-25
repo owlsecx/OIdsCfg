@@ -18,24 +18,18 @@
 
 ## 📌 Overview
 
-Offline IDS/NSM/HIDS configuration auditor (Suricata, Snort, Zeek, Wazuh)
+OIdsCfg — IDS / NSM / HIDS Configuration Auditor. It provides offline, read-only audit of the detection stack config. Built-in demo/self-test paths and severity gates help validate detections without touching production when those flags are used.
 
 ---
 
 ## ✨ Features
 
 - Offline, read-only audit of the detection stack config
-- Suricata suricata.yaml — HOME_NET/EXTERNAL_NET, rule-files, app-layer parsers, stream reassembly depth/memcap evasion, checksum validation, eve-log event types, af-packet/nfq IPS mode, drop-vs-alert, unix-command socket, run-as, community-id, stats
+- Suricata suricata.yaml — HOME_NET/EXTERNAL_NET, rule-files, app-layer parsers, stream reassembly depth/memcap evasion, checksum validation, eve-log event types, af-packet/nfq IPS mode, drop-vs-alert, unix-command socket
 - Rule sanity — dup SIDs, missing rev/classtype/sid, disabled critical rules, broad pass, suppressions
 - Snort 2 snort.conf & Snort 3 snort.lua — HOME_NET, frag3/stream5/http_inspect, checksum_mode, outputs
 - Zeek local.zeek / node.cfg / networks.cfg / zeekctl.cfg — validate-certs, intel, notice, log rotation, ignore_checksums, unloaded analyzers
 - Wazuh / OSSEC ossec.conf — syscheck, rootcheck, active-response whitelist, remote syslog, authd password, SMTP, vulnerability detection, alert level
-- MITRE ATT&CK (defense-evasion) + D3FEND mapping
-- Telemetry coverage matrix (which sensors see what)
-- Weighted 0-100 score + A…F grade per component
-- Auto-discovery under a root (e.g. mounted image)
-- Export TXT / Markdown / JSON / CSV / SARIF 2.1.0
-- Self-test --demo (weak vs hardened lab configs)
 
 ---
 
@@ -49,7 +43,10 @@ Offline IDS/NSM/HIDS configuration auditor (Suricata, Snort, Zeek, Wazuh)
 ## 🚀 Usage
 
 ```bash
-./OIdsCfg
+./OIdsCfg                                     # interactive menu
+./OIdsCfg --scan -r /path/to/root
+./OIdsCfg --demo
+./OIdsCfg --help
 ```
 
 ---
